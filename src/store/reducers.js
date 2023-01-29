@@ -41,6 +41,11 @@ export const tokens = (state = DEFAULT_TOKENS_STATE, action) => {
         contracts: [action.token] , 
         symbols: [action.symbol]
       }
+    case 'TOKEN_1_BALANCE_LOADED':
+      return  {
+        ...state, 
+        balances: [action.balance]
+      }
     case 'TOKEN_2_LOADED':
       return  {
         ...state, 
@@ -48,6 +53,8 @@ export const tokens = (state = DEFAULT_TOKENS_STATE, action) => {
         contracts: [...state.contracts, action.token], 
         symbols: [...state.symbols, action.symbol]
       }
+
+  
       default:
         return state
   }
@@ -60,6 +67,19 @@ export const exchange = (state = { loaded: false, contract: {} }, action) => {
         ...state, 
         loaded: true, 
         contract: action.exchange  
+      }
+
+      //balance cases 
+
+    case 'EXCHANGE_TOKEN_1_BALANCE_LOADED':
+      return  {
+        ...state, 
+        balances: [action.balance]
+      }
+    case 'EXCHANGE_TOKEN_2_BALANCE_LOADED':
+      return  {
+        ...state, 
+        balances: [...state.balances, action.balance]
       }
 
       default:
