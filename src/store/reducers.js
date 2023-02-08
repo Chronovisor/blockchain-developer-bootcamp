@@ -46,6 +46,11 @@ export const tokens = (state = DEFAULT_TOKENS_STATE, action) => {
         ...state, 
         balances: [action.balance]
       }
+    case 'TOKEN_2_BALANCE_LOADED':
+      return  {
+        ...state, 
+        balances: [...state.balances, action.balance]
+      }
     case 'TOKEN_2_LOADED':
       return  {
         ...state, 
