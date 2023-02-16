@@ -56,8 +56,8 @@ export const tokens = (state = DEFAULT_TOKENS_STATE, action) => {
         ...state, 
         loaded: true, 
         contracts: [...state.contracts, action.token], 
-      //   symbols: [...state.symbols, action.symbol]
-      // }
+         symbols: [...state.symbols, action.symbol]
+        }
 
   
       default:

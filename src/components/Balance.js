@@ -16,7 +16,8 @@ const Balance = () => {
   const tokens = useSelector(state => state.tokens.contracts)    
 
   const symbols = useSelector(state => state.tokens.symbols)	
-
+  const tokenBalances = useSelector(state => state.tokens.balances) 
+   
   useEffect(() => {
       if(exchange && tokens[0] && tokens[1] && account)  {
         loadBalances(exchange, tokens, account, dispatch)  
@@ -38,6 +39,7 @@ const Balance = () => {
       <div className='exchange__transfers--form'>
         <div className='flex-between'>
         	<p><small>Token</small><br /><img src={dapp} alt="Token Logo" />{symbols && symbols[0]}</p>
+          <p><small>Wallet</small><br />{tokenBalances && tokenBalances[0]}</p>
         </div>
 
         <form>
