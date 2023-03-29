@@ -133,6 +133,45 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE , action) => {
         transferInProgress: false        
       }
 
+      //---------------------------------------------------------------
+      // MAKING ORDERS CASES
+
+    case 'NEW_ORDER_REQUEST':
+      return  {
+        ...state, 
+        transaction: {
+          transactionType: 'New Order',
+          isPending: true,
+          isSuccessful: false
+        }, 
+      }
+
+    case 'NEW_ORDER_SUCCESS':  
+      return  {
+      ...state, 
+      allOrders: {
+        ...state.allOrders,
+        data: [...state.allOrders.data, action.order]
+      },
+      transaction: {
+        transactionType: 'New Order',
+        isPending: false,
+        isSuccessful: true,
+      }, 
+      events: [action.event, ...state.events]
+    }
+
+    case 'NEW_ORDER_FAIL':
+      return  {
+        ...state, 
+        transaction: {
+          transactionType: 'New Order',
+          isPending: false,
+          isSuccessful: false,
+          isError: true
+        }, 
+      }
+
       default:
         return state
   }
