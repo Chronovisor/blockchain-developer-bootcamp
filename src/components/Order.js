@@ -93,3 +93,9 @@ const Order = () => {
   <button className="button button--filled" type="submit">
          {isBuy ? (<span>Buy Order</span>) : (<span>Sell Order</span>)}
   </button>
+        </form>
+    </div>
+  );
+}
+
+export default Order;
