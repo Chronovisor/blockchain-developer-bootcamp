@@ -121,7 +121,7 @@ export const makeBuyOrder = async (provider, exchange, tokens, order, dispatch) 
 	
 	const tokenGet = tokens[0].address
 	const amountGet = ethers.utils.parseUnits(order.amount, 18)
-	const tokensGive = tokens[1].address 
+	const tokenGive = tokens[1].address 
 	const amountGive = ethers.utils.parseUnits((order.amount * order.price).toString(), 18)
 
 	dispatch({ type: 'NEW_ORDER_REQUEST' })
@@ -141,7 +141,7 @@ export const makeSellOrder = async (provider, exchange, tokens, order, dispatch)
 	
 	const tokenGet = tokens[1].address
 	const amountGet = ethers.utils.parseUnits((order.amount * order.price).toString(),18)
-	const tokensGive = tokens[0].address 
+	const tokenGive = tokens[0].address 
 	const amountGive = ethers.utils.parseUnits(order.amount, 18)
 
 	dispatch({ type: 'NEW_ORDER_REQUEST' })
