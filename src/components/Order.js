@@ -9,8 +9,8 @@ const Order = () => {
   const [price, setPrice] = useState(0)
 
   const provider = useSelector(state => state.provider.connection)
-  const tokens = useSelector(state => state.tokens.connection)
-  const exchange = useSelector(state => state.exchange.connection)
+  const tokens = useSelector(state => state.tokens.contracts)
+  const exchange = useSelector(state => state.exchange.contracts)
 
 
   const dispatch = useDispatch()
@@ -50,7 +50,7 @@ const Order = () => {
       <div className="component__header flex-between">
         <h2>New Order</h2>
         <div className="tabs">
-          <button onClick={tabHandler} ref={buyRef} className="tab tab--active">
+          <button onClick={tabHandler} ref={buyRef} className='tab tab--active'>
             Buy
           </button>
           <button onClick={tabHandler} ref={sellRef} className="tab">
@@ -91,7 +91,10 @@ const Order = () => {
         />
 
   <button className="button button--filled" type="submit">
-         {isBuy ? (<span>Buy Order</span>) : (<span>Sell Order</span>)}
+         {isBuy ? (
+          <span>Buy Order</span>
+         ) : (
+          <span>Sell Order</span>)}
   </button>
         </form>
     </div>
