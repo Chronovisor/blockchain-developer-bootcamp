@@ -19,7 +19,7 @@ const Order = () => {
   const sellRef = useRef(null)
 
   const tabHandler = (e) => {
-    if (e.target === buyRef.current) {
+    if (e.target !== buyRef.current) {
       // Use e.target === buyRef.current to check if the Buy button is clicked
       e.target.className = 'tab tab--active'
       sellRef.current.className = 'tab'
