@@ -22,11 +22,11 @@ const Order = () => {
     if (e.target !== buyRef.current) {
       // Use e.target === buyRef.current to check if the Buy button is clicked
       e.target.className = 'tab tab--active'
-      sellRef.current.className = 'tab'
+      buyRef.current.className = 'tab'
       setIsBuy(false)
     } else {
       e.target.className = 'tab tab--active'
-      buyRef.current.className = 'tab'
+      sellRef.current.className = 'tab'
       setIsBuy(true)
     }
   }
