@@ -9,7 +9,7 @@ const Order = () => {
   const [price, setPrice] = useState(0)
 
   const provider = useSelector(state => state.provider.connection)
-  const tokens = useSelector(state => state.tokens.contract)
+  const tokens = useSelector(state => state.tokens.contracts)
   const exchange = useSelector(state => state.exchange.contract)
 
 
