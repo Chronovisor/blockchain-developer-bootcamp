@@ -87,6 +87,17 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE , action) => {
         contract: action.exchange  
       }
 
+    // ORDERS LOADED (CANCELLED, FILLED & ALL)
+
+    case 'ALL_ORDERS_LOADED' :
+      return {
+        ...state,
+        allOrders: {
+          loaded: true, 
+          data: action.allOrders
+        }
+      } 
+
       //balance cases 
 
     case 'EXCHANGE_TOKEN_1_BALANCE_LOADED':
