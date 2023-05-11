@@ -10,7 +10,7 @@ import {
   loadAccount,
   loadTokens, 
   loadExchange,
-  loadAllOrders,
+  loadAllorders,
   subscribeToEvents
 } from '../store/interactions';
 
@@ -54,7 +54,7 @@ function App() {
     const exchange = await loadExchange(provider, exchangeConfig.address, dispatch)
 
     // Fetch all orders: open, filled, cancelled
-    loadAllOrders(provider, exchange, dispatch)
+    loadAllorders(provider, exchange, dispatch)
 
     //Listen to events
     subscribeToEvents(exchange, dispatch)

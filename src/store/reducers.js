@@ -162,7 +162,25 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE , action) => {
       }
 
     case 'NEW_ORDER_SUCCESS':  
-      return  {
+      //prevent duplicate orders
+      index = state.allOrders.data.findIndex(order => order.id.toString === action.order.id.toString())
+
+      if(index === -1) {
+        data = [...state.allOrders.data, action.order]
+      } else {
+        data = state.allOrders.DEFAULT_TOKENS_STATE
+      }
+      
+
+      return {
+        ...state,
+        allOrders: {
+          ...state.allOrders,
+          data
+        }
+
+
+      return {
       ...state, 
       allOrders: {
         ...state.allOrders,
