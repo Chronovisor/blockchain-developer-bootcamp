@@ -180,12 +180,8 @@ export const exchange = (state = DEFAULT_EXCHANGE_STATE , action) => {
         }
 
 
-      return {
-      ...state, 
-      allOrders: {
+     
 
-        ...state.allOrders,
-        data: [...state.allOrders.data, action.order]
       },
       transaction: {
         transactionType: 'New Order',
